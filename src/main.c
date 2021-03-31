@@ -56,7 +56,7 @@ int main()
 			}
 			case 3: {
 				LinkedList p=*L;
-				ElemType e=0,pi;
+				ElemType *e=(ElemType*)malloc(sizeof(ElemType)),pi;
 				printf("Input the data of the node which you want to delete behind it:");
 				scanf_s("%d", &pi);
 				p = p->next;
@@ -75,9 +75,37 @@ int main()
 					printf("There is no node behind it!");
 				}
 				else {
-					printf("Deletion is completed!\nNow the linked list:\n");
+					printf("Deletion is completed!\nThe data of the deleted node is : %d\n",*e);
+					printf("Now the linked list:\n");
 					TraverseList(*L, visit);
 				}
+				Sleep(2000);
+				break;
+			}
+			case 4: {
+				ElemType e;
+				printf("Input the data to search:");
+				scanf_s("%d",&e);
+				SearchList(*L, e);
+				Sleep(2000);
+				break;
+			}
+			case 5: {
+				flag=ReverseList(L);
+				if (flag == SUCCESS) {
+					printf("SUCCESS!\n");
+					printf("Now the linked list:\n");
+					TraverseList(*L, visit);
+				}
+				else printf("ERROR!\n");
+				Sleep(2000);
+				break;
+			}
+			case 6: {
+				flag = IsLoopList(*L);
+				if (flag == SUCCESS)
+					printf("Yes!\n");
+				else printf("No!\n");
 				Sleep(2000);
 				break;
 			}
