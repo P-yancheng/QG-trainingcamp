@@ -32,11 +32,15 @@ int main()
 				ElemType pi, qi;
 				printf("Input the data of the node which you want to insert behind it:\n");
 				scanf_s("%d", &pi);
-				while ((p->data != pi)&&(p!=NULL)) {
-					p = p->next;
+				while (p != NULL) {
+					if (p->data == pi)
+						break;
+					else
+						p = p->next;
 				}
 				if (p == NULL) {
 					printf("There is no data as %d", pi);
+					Sleep(2000);
 					break;
 				}
 				printf("Input the inserted data:");
@@ -68,6 +72,7 @@ int main()
 				}
 				if (p == NULL) {
 					printf("There is no data as %d", pi);
+					Sleep(2000);
 					break;
 				}
 				flag=DeleteList(p, e);
