@@ -19,161 +19,137 @@ int main()
 	while (key) {
 		menu();
 		scanf_s("%d", &key);
-		switch (key)
-		{
-			case 1: {
-				if (L == NULL)
-					printf("ERROR!");
-				*L = creatlinkedlist(L);
-				break;
-			}
-			case 2: {
-				LinkedList p=*L, q = (LinkedList)malloc(sizeof(LNode));
-				ElemType pi, qi;
-				printf("Input the data of the node which you want to insert behind it:\n");
-				scanf_s("%d", &pi);
-				while (p != NULL) {
-					if (p->data == pi)
-						break;
-					else
-						p = p->next;
-				}
-				if (p == NULL) {
-					printf("There is no data as %d", pi);
-					Sleep(2000);
-					break;
-				}
-				printf("Input the inserted data:");
-				scanf_s("%d", &qi);
-				q->data = qi;
-				q->next = NULL;
-				flag=InsertList(p, q);
-				if (flag == ERROR) {
-					printf("ERROR!");
-				}
-				else {
-					printf("Insertion is completed!\nNow the linked list:\n");
-					TraverseList(*L, visit);
-				}
-				Sleep(2000);
-				break;
-			}
-			case 3: {
-				LinkedList p=*L;
-				ElemType *e=(ElemType*)malloc(sizeof(ElemType)),pi;
-				printf("Input the data of the node which you want to delete behind it:");
-				scanf_s("%d", &pi);
-				p = p->next;
-				while (p != NULL) {
-					if (p->data == pi)
-						break;
-					else
-						p = p->next;
-				}
-				if (p == NULL) {
-					printf("There is no data as %d", pi);
-					Sleep(2000);
-					break;
-				}
-				flag=DeleteList(p, e);
-				if (flag == ERROR) {
-					printf("There is no node behind it!");
-				}
-				else {
-					printf("Deletion is completed!\nThe data of the deleted node is : %d\n",*e);
-					printf("Now the linked list:\n");
-					TraverseList(*L, visit);
-				}
-				Sleep(2000);
-				break;
-			}
-			case 4: {
-				ElemType e;
-				printf("Input the data to search:");
-				scanf_s("%d",&e);
-				SearchList(*L, e);
-				Sleep(2000);
-				break;
-			}
-			case 5: {
-				flag=ReverseList(L);
-				if (flag == SUCCESS) {
-					printf("SUCCESS!\n");
-					printf("Now the linked list:\n");
-					TraverseList(*L, visit);
-				}
-				else printf("ERROR!\n");
-				Sleep(2000);
-				break;
-			}
-			case 6: {
-				flag = IsLoopList(*L);
-				if (flag == SUCCESS)
-					printf("Yes!\n");
-				else printf("No!\n");
-				Sleep(2000);
-				break;
-			}
-			case 4: {
-				ElemType e;
-				printf("Input the data to search:");
-				scanf_s("%d",&e);
-				SearchList(*L, e);
-				Sleep(2000);
-				break;
-			}
-			case 5: {
-				flag=ReverseList(L);
-				if (flag == SUCCESS) {
-					printf("SUCCESS!\n");
-					printf("Now the linked list:\n");
-					TraverseList(*L, visit);
-				}
-				else printf("ERROR!\n");
-				Sleep(2000);
-				break;
-			}
-			case 6: {
-				flag = IsLoopList(*L);
-				if (flag == SUCCESS)
-					printf("Yes!\n");
-				else printf("No!\n");
-				Sleep(2000);
-				break;
-			}
-			case 7: {
-				*L = ReverseEvenList(L);
-				if (L != NULL) {
-					printf("SUCCESS!\n");
-					printf("Now the linked list:\n");
-					TraverseList(*L, visit);
-				}
-				else printf("ERROR!\n");
-				Sleep(2000);
-				break;
-			}
-			case 8: {
-				LinkedList m=NULL;
-				m = FindMidNode(L);
-				if (m != NULL)
-					printf("It's data is %d\n", m->data);
-				Sleep(2000);
-				break;
-			}
-			case 9: {
-				TraverseList(*L, visit);
-				Sleep(5000);
-				break;
-			}
-			case 0: {
-				DestroyList(L);
-				return 0;
-			}
-			default: {
-				printf("Please input a number from 0 to 9 !\n");
-				Sleep(2000);
-			}
+		if (key!=1&&(*L)->next == NULL) {
+			printf("There is no linked list!\nPlease creat a linked list first!\n");
+			Sleep(1000);
 		}
+		else
+			switch (key)
+			{
+				case 1: {
+					if (L == NULL)
+						printf("ERROR!");
+					*L = creatlinkedlist(L);
+					break;
+				}
+				case 2: {
+					LinkedList p=*L, q = (LinkedList)malloc(sizeof(LNode));
+					ElemType pi, qi;
+					printf("Input the data of the node which you want to insert behind it:\n");
+					scanf_s("%d", &pi);
+					while (p != NULL) {
+						if (p->data == pi)
+							break;
+						else
+							p = p->next;
+					}
+					if (p == NULL) {
+						printf("There is no data as %d", pi);
+						Sleep(2000);
+						break;
+					}
+					printf("Input the inserted data:");
+					scanf_s("%d", &qi);
+					q->data = qi;
+					q->next = NULL;
+					flag=InsertList(p, q);
+					if (flag == ERROR) {
+						printf("ERROR!");
+					}
+					else {
+						printf("Insertion is completed!\nNow the linked list:\n");
+						TraverseList(*L, visit);
+					}
+					Sleep(2000);
+					break;
+				}
+				case 3: {
+					LinkedList p=*L;
+					ElemType *e=(ElemType*)malloc(sizeof(ElemType)),n;
+					printf("Which node do you want to delete? Input the serial number:\n");
+					scanf_s("%d", &n);
+					for (int i = 1;i < n;i++) {
+						if (p->next == NULL)
+							break;
+						p = p->next;
+					}
+					if (p->next == NULL) {
+						printf("%dth is out of range!", n);
+						Sleep(2000);
+						break;
+					}
+					flag=DeleteList(p, e);
+					if (flag == ERROR) {
+						printf("There is no node!");
+					}
+					else {
+						printf("Deletion is completed!\nThe data of the deleted node is : %d\n",*e);
+						printf("Now the linked list:\n");
+						TraverseList(*L, visit);
+					}
+					Sleep(2000);
+					break;
+				}
+				case 4: {
+					ElemType e;
+					printf("Input the data to search:");
+					scanf_s("%d",&e);
+					SearchList(*L, e);
+					Sleep(2000);
+					break;
+				}
+				case 5: {
+					flag=ReverseList(L);
+					if (flag == SUCCESS) {
+						printf("SUCCESS!\n");
+						printf("Now the linked list:\n");
+						TraverseList(*L, visit);
+					}
+					else printf("ERROR!\n");
+					Sleep(2000);
+					break;
+				}
+				case 6: {
+					flag = IsLoopList(*L);
+					if (flag == SUCCESS)
+						printf("Yes!\n");
+					else printf("No!\n");
+					Sleep(2000);
+					break;
+				}
+				case 7: {
+					*L = ReverseEvenList(L);
+					if (L != NULL) {
+						printf("SUCCESS!\n");
+						printf("Now the linked list:\n");
+						TraverseList(*L, visit);
+					}
+					else printf("ERROR!\n");
+					Sleep(2000);
+					break;
+				}
+				case 8: {
+					LinkedList m=NULL;
+					m = FindMidNode(L);
+					if (m != NULL)
+						printf("It's data is %d\n", m->data);
+					Sleep(2000);
+					break;
+				}
+				case 9: {
+					TraverseList(*L, visit);
+					Sleep(5000);
+					break;
+				}
+				case 0: {
+					DestroyList(L);
+					return 0;
+				}
+				default: {
+					printf("Please input a number from 0 to 9 !\n");
+					Sleep(2000);
+				}
+			}
 		system("cls");
 	}
 	DestroyList(L);
