@@ -17,7 +17,7 @@ int main(){
 		switch (key) {
 			case 1: {
 				int size;
-				printf("Input the sizes you want to creat:\n");
+				printf("Input the sizes you want to create:\n");
 				scanf_s("%d", &size);
 				flag = initStack(s, size);
 				if (flag == SUCCESS)
