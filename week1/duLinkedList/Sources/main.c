@@ -5,7 +5,7 @@
 
 void print(ElemType e);
 void menu();
-DuLinkedList creatDuLinkedList(DuLinkedList*);
+DuLinkedList createDuLinkedList(DuLinkedList*);
 void (*visit)(ElemType) = &(print);
 
 int main()
@@ -20,7 +20,7 @@ int main()
 		menu();
 		scanf_s("%d", &key);
 		if (key != 1 && (*L)->next == NULL) {
-			printf("There is no linked list!\nPlease creat a linked list first!\n");
+			printf("There is no linked list!\nPlease create a linked list first!\n");
 			Sleep(1000);
 		}
 		else
@@ -29,7 +29,7 @@ int main()
 				case 1: {
 					if (*L == NULL)
 						printf("ERROR!");
-					*L = creatDuLinkedList(L);
+					*L = createDuLinkedList(L);
 					break;
 				}
 				case 2: {
@@ -148,7 +148,7 @@ void menu() {
 	printf("-------------------------------------------\n\n");
 	printf("      *Welcome to DuLinkedList system!*      \n\n");
 	printf(" MENU:\n");
-	printf(" 1.Creat a linked list\n");
+	printf(" 1.Create a linked list\n");
 	printf(" 2.Insert a node before some nodes\n");
 	printf(" 3.Insert a node after some nodes\n");
 	printf(" 4.Delete a node\n");
@@ -158,10 +158,10 @@ void menu() {
 	printf("Please input the number for the function:\n");
 }
 
-DuLinkedList creatDuLinkedList(DuLinkedList *L) {
+DuLinkedList createDuLinkedList(DuLinkedList *L) {
 	DuLinkedList p1=*L ,p2=(DuLinkedList)malloc(sizeof(DuLNode));
 	int i,n;
-	printf("Please input how much nodes do you want to creat:\n");
+	printf("Please input how much nodes do you want to create:\n");
 	scanf_s("%d", &n);
 	for (i = 1;i <= n;i++) {
 		if (p2 == NULL) {
