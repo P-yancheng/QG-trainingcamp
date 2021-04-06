@@ -5,7 +5,7 @@
 
 void print(ElemType e);
 void menu();
-LinkedList creatlinkedlist(LinkedList);
+LinkedList createlinkedlist(LinkedList);
 void (*visit)(ElemType) = &(print);
 
 int main()
@@ -20,7 +20,7 @@ int main()
 		menu();
 		scanf_s("%d", &key);
 		if (key!=1&&(*L)->next == NULL) {
-			printf("There is no linked list!\nPlease creat a linked list first!\n");
+			printf("There is no linked list!\nPlease create a linked list first!\n");
 			Sleep(1000);
 		}
 		else
@@ -29,7 +29,7 @@ int main()
 				case 1: {
 					if (L == NULL)
 						printf("ERROR!");
-					*L = creatlinkedlist(L);
+					*L = createlinkedlist(L);
 					break;
 				}
 				case 2: {
@@ -160,7 +160,7 @@ void menu() {
 	printf("-------------------------------------------\n\n");
 	printf("      *Welcome to LinkedList system!*      \n\n");
 	printf(" MENU:\n");
-	printf(" 1.Creat a linked list\n");
+	printf(" 1.Create a linked list\n");
 	printf(" 2.Insert a node\n");
 	printf(" 3.Delete a node\n");
 	printf(" 4.Search a node\n");
@@ -174,10 +174,10 @@ void menu() {
 	printf("Please input the number for the function:\n");
 }
 
-LinkedList creatlinkedlist(LinkedList *L) {
+LinkedList createlinkedlist(LinkedList *L) {
 	LinkedList p1=*L ,p2=(LinkedList)malloc(sizeof(LNode));
 	int i,n;
-	printf("Please input how much nodes do you want to creat:\n");
+	printf("Please input how much nodes do you want to create:\n");
 	scanf_s("%d", &n);
 	for (i = 1;i <= n;i++) {
 		if (p2 == NULL) {
