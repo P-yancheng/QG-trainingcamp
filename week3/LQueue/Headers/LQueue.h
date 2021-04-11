@@ -22,18 +22,18 @@
   /**************************************************************
    *    Struct Define Section
    **************************************************************/
-   //Á´Ê½¶ÓÁĞ½á¹¹
+   //é“¾å¼é˜Ÿåˆ—ç»“æ„
 typedef struct node
 {
-    void* data;                   //Êı¾İÓòÖ¸Õë
-    struct node* next;            //Ö¸Ïòµ±Ç°½áµãµÄÏÂÒ»½áµã
+    void* data;                   //æ•°æ®åŸŸæŒ‡é’ˆ
+    struct node* next;            //æŒ‡å‘å½“å‰ç»“ç‚¹çš„ä¸‹ä¸€ç»“ç‚¹
 } Node;
 
 typedef struct Lqueue
 {
-    Node* front;                   //¶ÓÍ·
-    Node* rear;                    //¶ÓÎ²
-    size_t length;            //¶ÓÁĞ³¤¶È
+    Node* front;                   //é˜Ÿå¤´
+    Node* rear;                    //é˜Ÿå°¾
+    size_t length;            //é˜Ÿåˆ—é•¿åº¦
 } LQueue;
 
 typedef enum
@@ -50,77 +50,77 @@ char datatype[30];
 
  /**
   *  @name        : void InitLQueue(LQueue *Q)
-  *    @description : ³õÊ¼»¯¶ÓÁĞ
-  *    @param         Q ¶ÓÁĞÖ¸ÕëQ
+  *    @description : åˆå§‹åŒ–é˜Ÿåˆ—
+  *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
   *  @notice      : None
   */
 void InitLQueue(LQueue* Q);
 
 /**
  *  @name        : void DestoryLQueue(LQueue *Q)
- *    @description : Ïú»Ù¶ÓÁĞ
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
+ *    @description : é”€æ¯é˜Ÿåˆ—
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
  *  @notice      : None
  */
 void DestoryLQueue(LQueue* Q);
 
 /**
  *  @name        : Status IsEmptyLQueue(const LQueue *Q)
- *    @description : ¼ì²é¶ÓÁĞÊÇ·ñÎª¿Õ
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
- *    @return         : ¿Õ-TRUE; Î´¿Õ-FALSE
+ *    @description : æ£€æŸ¥é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
+ *    @return         : ç©º-TRUE; æœªç©º-FALSE
  *  @notice      : None
  */
 Status IsEmptyLQueue(const LQueue* Q);
 
 /**
  *  @name        : Status GetHeadLQueue(LQueue *Q, void *e)
- *    @description : ²é¿´¶ÓÍ·ÔªËØ
- *    @param         Q e ¶ÓÁĞÖ¸ÕëQ,·µ»ØÊı¾İÖ¸Õëe
- *    @return         : ³É¹¦-TRUE; Ê§°Ü-FALSE
- *  @notice      : ¶ÓÁĞÊÇ·ñ¿Õ
+ *    @description : æŸ¥çœ‹é˜Ÿå¤´å…ƒç´ 
+ *    @param         Q e é˜Ÿåˆ—æŒ‡é’ˆQ,è¿”å›æ•°æ®æŒ‡é’ˆe
+ *    @return         : æˆåŠŸ-TRUE; å¤±è´¥-FALSE
+ *  @notice      : é˜Ÿåˆ—æ˜¯å¦ç©º
  */
 Status GetHeadLQueue(LQueue* Q, void* e);
 
 /**
  *  @name        : int LengthLQueue(LQueue *Q)
- *    @description : È·¶¨¶ÓÁĞ³¤¶È
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
- *    @return         : ³É¹¦-TRUE; Ê§°Ü-FALSE
+ *    @description : ç¡®å®šé˜Ÿåˆ—é•¿åº¦
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
+ *    @return         : æˆåŠŸ-TRUE; å¤±è´¥-FALSE
  *  @notice      : None
  */
 int LengthLQueue(LQueue* Q);
 
 /**
  *  @name        : Status EnLQueue(LQueue *Q, void *data)
- *    @description : Èë¶Ó²Ù×÷
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ,Èë¶ÓÊı¾İÖ¸Õëdata
- *    @return         : ³É¹¦-TRUE; Ê§°Ü-FALSE
- *  @notice      : ¶ÓÁĞÊÇ·ñÎª¿Õ
+ *    @description : å…¥é˜Ÿæ“ä½œ
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ,å…¥é˜Ÿæ•°æ®æŒ‡é’ˆdata
+ *    @return         : æˆåŠŸ-TRUE; å¤±è´¥-FALSE
+ *  @notice      : é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
  */
 Status EnLQueue(LQueue* Q, void* data);
 
 /**
  *  @name        : Status DeLQueue(LQueue *Q)
- *    @description : ³ö¶Ó²Ù×÷
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
- *    @return         : ³É¹¦-TRUE; Ê§°Ü-FALSE
+ *    @description : å‡ºé˜Ÿæ“ä½œ
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
+ *    @return         : æˆåŠŸ-TRUE; å¤±è´¥-FALSE
  *  @notice      : None
  */
 Status DeLQueue(LQueue* Q);
 
 /**
  *  @name        : void ClearLQueue(AQueue *Q)
- *    @description : Çå¿Õ¶ÓÁĞ
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
+ *    @description : æ¸…ç©ºé˜Ÿåˆ—
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
  *  @notice      : None
  */
 void ClearLQueue(LQueue* Q);
 
 /**
  *  @name        : Status TraverseLQueue(const LQueue *Q, void (*foo)(void *q))
- *    @description : ±éÀúº¯Êı²Ù×÷
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ£¬²Ù×÷º¯ÊıÖ¸Õëfoo
+ *    @description : éå†å‡½æ•°æ“ä½œ
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQï¼Œæ“ä½œå‡½æ•°æŒ‡é’ˆfoo
  *    @return         : None
  *  @notice      : None
  */
@@ -128,8 +128,8 @@ Status TraverseLQueue(const LQueue* Q, void (*foo)(void* q));
 
 /**
  *  @name        : void LPrint(void *q)
- *    @description : ²Ù×÷º¯Êı
- *    @param         q Ö¸Õëq
+ *    @description : æ“ä½œå‡½æ•°
+ *    @param         q æŒ‡é’ˆq
 
  *  @notice      : None
  */
