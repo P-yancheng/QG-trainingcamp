@@ -1,14 +1,14 @@
 #include<stdio.h>
 #include"LQueue.h"
 
-//³õÊ¼»¯¶ÓÁĞ
+//åˆå§‹åŒ–é˜Ÿåˆ—
 void InitLQueue(LQueue* Q) {
 	Q->front = NULL;
 	Q->rear = NULL;
 	Q->length = 0;
 }
 
-//Ïú»Ù¶ÓÁĞ
+//é”€æ¯é˜Ÿåˆ—
 void DestoryLQueue(LQueue* Q) {
     Node* cur = Q->front;
     while (cur)
@@ -22,12 +22,12 @@ void DestoryLQueue(LQueue* Q) {
     free(Q);
 }
 
-//¼ì²é¶ÓÁĞÊÇ·ñÎª¿Õ
+//æ£€æŸ¥é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
 Status IsEmptyLQueue(const LQueue* Q) {
     return(Q->length == 0);
 }
 
-//²é¿´¶ÓÍ·ÔªËØ
+//æŸ¥çœ‹é˜Ÿå¤´å…ƒç´ 
 Status GetHeadLQueue(LQueue* Q, void* e) {
     if (IsEmptyLQueue(Q))
         return FALSE;
@@ -36,12 +36,12 @@ Status GetHeadLQueue(LQueue* Q, void* e) {
     return TRUE;
 }
 
-//È·¶¨¶ÓÁĞ³¤¶È
+//ç¡®å®šé˜Ÿåˆ—é•¿åº¦
 int LengthLQueue(LQueue* Q) {
     return(Q->length);
 }
 
-//Èë¶Ó²Ù×÷
+//å…¥é˜Ÿæ“ä½œ
 Status EnLQueue(LQueue* Q, void* data) {
     Node *p=(Node*)malloc(sizeof(Node));
     if (p == NULL)
@@ -58,7 +58,7 @@ Status EnLQueue(LQueue* Q, void* data) {
     return TRUE;
 }
 
-//³ö¶Ó²Ù×÷
+//å‡ºé˜Ÿæ“ä½œ
 Status DeLQueue(LQueue* Q) {
     Node* temp;
     if (IsEmptyLQueue(Q))
@@ -72,7 +72,7 @@ Status DeLQueue(LQueue* Q) {
     return TRUE;
 }
 
-//Çå¿Õ¶ÓÁĞ
+//æ¸…ç©ºé˜Ÿåˆ—
 void ClearLQueue(LQueue* Q) {
     Node* cur = Q->front;
     while (cur)
@@ -85,7 +85,7 @@ void ClearLQueue(LQueue* Q) {
     Q->rear = NULL;
 }
 
-//±éÀúº¯Êı²Ù×÷
+//éå†å‡½æ•°æ“ä½œ
 Status TraverseLQueue(const LQueue* Q, void (*foo)(void* q)) {
     if (IsEmptyLQueue(Q))
         return FALSE;
@@ -98,7 +98,7 @@ Status TraverseLQueue(const LQueue* Q, void (*foo)(void* q)) {
     return TRUE;
 }
 
-//²Ù×÷º¯Êı
+//æ“ä½œå‡½æ•°
 void LPrint(void* q) {
     printf("%c ", *(char*)q);
 }
