@@ -27,13 +27,13 @@
 /**************************************************************
  *    Struct Define Section
  **************************************************************/
-//Ñ­»·¶ÓÁĞ½á¹¹
+//å¾ªç¯é˜Ÿåˆ—ç»“æ„
 typedef struct Aqueue
 {
-    void *data[MAXQUEUE];      //Êı¾İÓò
+    void *data[MAXQUEUE];      //æ•°æ®åŸŸ
     int front;
     int rear;
-    size_t length;        //¶ÓÁĞ³¤¶È
+    size_t length;        //é˜Ÿåˆ—é•¿åº¦
 } AQueue;
 
 typedef enum
@@ -48,8 +48,8 @@ char datatype[MAXQUEUE];
 
 /**
  *  @name        : void InitAQueue(AQueue *Q)
- *    @description : ³õÊ¼»¯¶ÓÁĞ
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
+ *    @description : åˆå§‹åŒ–é˜Ÿåˆ—
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
  *  @notice      : None
  */
 void InitAQueue(AQueue *Q);
@@ -57,8 +57,8 @@ void InitAQueue(AQueue *Q);
 
 /**
  *  @name        : void DestoryAQueue(AQueue *Q)
- *    @description : Ïú»Ù¶ÓÁĞ
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
+ *    @description : é”€æ¯é˜Ÿåˆ—
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
  *  @notice      : None
  */
 void DestoryAQueue(AQueue *Q);
@@ -67,18 +67,18 @@ void DestoryAQueue(AQueue *Q);
 
 /**
  *  @name        : Status IsFullAQueue(const AQueue *Q)
- *    @description : ¼ì²é¶ÓÁĞÊÇ·ñÒÑÂú
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
- *    @return         : Âú-TRUE; Î´Âú-FALSE
+ *    @description : æ£€æŸ¥é˜Ÿåˆ—æ˜¯å¦å·²æ»¡
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
+ *    @return         : æ»¡-TRUE; æœªæ»¡-FALSE
  *  @notice      : None
  */
 Status IsFullAQueue(const AQueue *Q);
 
 /**
  *  @name        : Status IsEmptyAQueue(const AQueue *Q)
- *    @description : ¼ì²é¶ÓÁĞÊÇ·ñÎª¿Õ
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
- *    @return         : ¿Õ-TRUE; Î´¿Õ-FALSE
+ *    @description : æ£€æŸ¥é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
+ *    @return         : ç©º-TRUE; æœªç©º-FALSE
  *  @notice      : None
  */
 Status IsEmptyAQueue(const AQueue *Q);
@@ -87,10 +87,10 @@ Status IsEmptyAQueue(const AQueue *Q);
 
 /**
  *  @name        : Status GetHeadAQueue(AQueue *Q, void *e)
- *    @description : ²é¿´¶ÓÍ·ÔªËØ
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ£¬´æ·ÅÔªËØe
- *    @return         : ³É¹¦-TRUE; Ê§°Ü-FALSE
- *  @notice      : ¶ÓÁĞÊÇ·ñ¿Õ
+ *    @description : æŸ¥çœ‹é˜Ÿå¤´å…ƒç´ 
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQï¼Œå­˜æ”¾å…ƒç´ e
+ *    @return         : æˆåŠŸ-TRUE; å¤±è´¥-FALSE
+ *  @notice      : é˜Ÿåˆ—æ˜¯å¦ç©º
  */
 Status GetHeadAQueue(AQueue *Q, void *e);		
 
@@ -98,9 +98,9 @@ Status GetHeadAQueue(AQueue *Q, void *e);
 
 /**
  *  @name        : int LengthAQueue(AQueue *Q)
- *    @description : È·¶¨¶ÓÁĞ³¤¶È
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
- *    @return         : ¶ÓÁĞ³¤¶Ècount
+ *    @description : ç¡®å®šé˜Ÿåˆ—é•¿åº¦
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
+ *    @return         : é˜Ÿåˆ—é•¿åº¦count
  *  @notice      : None
  */
 int LengthAQueue(AQueue *Q);	
@@ -109,10 +109,10 @@ int LengthAQueue(AQueue *Q);
 
 /**
  *  @name        : Status EnAQueue(AQueue *Q, void *data)
- *    @description : Èë¶Ó²Ù×÷
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ,Èë¶ÓÊı¾İÖ¸Õëdata
- *    @return         : ³É¹¦-TRUE; Ê§°Ü-FALSE
- *  @notice      : ¶ÓÁĞÊÇ·ñÂúÁË»òÎª¿Õ
+ *    @description : å…¥é˜Ÿæ“ä½œ
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ,å…¥é˜Ÿæ•°æ®æŒ‡é’ˆdata
+ *    @return         : æˆåŠŸ-TRUE; å¤±è´¥-FALSE
+ *  @notice      : é˜Ÿåˆ—æ˜¯å¦æ»¡äº†æˆ–ä¸ºç©º
  */
 Status EnAQueue(AQueue *Q, void *data);	
 
@@ -120,9 +120,9 @@ Status EnAQueue(AQueue *Q, void *data);
 
 /**
  *  @name        : Status DeAQueue(AQueue *Q)
- *    @description : ³ö¶Ó²Ù×÷
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
- *    @return         : ³É¹¦-TRUE; Ê§°Ü-FALSE
+ *    @description : å‡ºé˜Ÿæ“ä½œ
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
+ *    @return         : æˆåŠŸ-TRUE; å¤±è´¥-FALSE
  *  @notice      : None
  */
 Status DeAQueue(AQueue *Q);		
@@ -131,8 +131,8 @@ Status DeAQueue(AQueue *Q);
 
 /**
  *  @name        : void ClearAQueue(Queue *Q)
- *    @description : Çå¿Õ¶ÓÁĞ
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ
+ *    @description : æ¸…ç©ºé˜Ÿåˆ—
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQ
  *  @notice      : None
  */
 void ClearAQueue(AQueue *Q);	
@@ -141,8 +141,8 @@ void ClearAQueue(AQueue *Q);
 
 /**
  *  @name        : Status TraverseAQueue(const AQueue *Q, void (*foo)(void *q))
- *    @description : ±éÀúº¯Êı²Ù×÷
- *    @param         Q ¶ÓÁĞÖ¸ÕëQ£¬²Ù×÷º¯ÊıÖ¸Õëfoo
+ *    @description : éå†å‡½æ•°æ“ä½œ
+ *    @param         Q é˜Ÿåˆ—æŒ‡é’ˆQï¼Œæ“ä½œå‡½æ•°æŒ‡é’ˆfoo
  *    @return         : None
  *  @notice      : None
  */
@@ -152,8 +152,8 @@ Status TraverseAQueue(const AQueue *Q, void (*foo)(void *q));
 
 /**
  *  @name        : void APrint(void *q)
- *    @description : ²Ù×÷º¯Êı
- *    @param         q Ö¸Õëq
+ *    @description : æ“ä½œå‡½æ•°
+ *    @param         q æŒ‡é’ˆq
  *  @notice      : None
  */
 void APrint(void *q);	
