@@ -41,4 +41,5 @@ for t in range(iter_time):
         print(str(t) + ":" + str(loss))
     gradient = 2 * np.dot(X_train.transpose(), np.dot(X_train, w)-y_train) #dim*1
     w=w - learning_rate * grandient
-    
+
+# 
